@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  web:
+    images: nginx:alpine
+    networks:
+      -  virat-net-docker-exercise-bridge
+      
+  ping:
+    images: busybox
+    command: sleep 3600
+    networks:
+      - virat-net-docker-exercise-bridge
+
+
+network:
+  virat-net-docker-exercise-bridge:
+    driver: bridge
